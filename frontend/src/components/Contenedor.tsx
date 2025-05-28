@@ -1,8 +1,8 @@
 import { Card, CardContent, Typography, Box, CircularProgress } from "@mui/material";
-import type { Contenedor } from "../interfaces";
+import type { SimpleContainer } from "../interfaces";
 
 type Props = {
-  contenedor: Contenedor;
+  contenedor: SimpleContainer;
 };
 
 function getLinearColorFromPercentage(percent: number): string {
@@ -29,7 +29,7 @@ function getLinearColorFromPercentage(percent: number): string {
 }
 
 export default function ContainerCard({ contenedor }: Props) {
-  const color = getLinearColorFromPercentage(contenedor.porcentaje);
+  const color = getLinearColorFromPercentage(contenedor.capacity);
 
   return (
     <Card
@@ -56,13 +56,13 @@ export default function ContainerCard({ contenedor }: Props) {
         }}
       >
         <Typography variant="h6" align="center" gutterBottom sx={{ fontWeight: "bold" }}>
-          {contenedor.name}
+          {contenedor.id}
         </Typography>
 
         <Box sx={{ position: "relative", display: "inline-flex" }}>
           <CircularProgress
             variant="determinate"
-            value={contenedor.porcentaje}
+            value={contenedor.capacity}
             size={100}
             thickness={5}
             sx={{ color }}
@@ -84,7 +84,7 @@ export default function ContainerCard({ contenedor }: Props) {
         </Box>
 
         <Typography variant="body2" color="text.secondary" sx={{ marginTop: 1 }}>
-          {contenedor.porcentaje}%
+          {contenedor.capacity}%
         </Typography>
       </CardContent>
     </Card>
