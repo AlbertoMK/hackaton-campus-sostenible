@@ -1,6 +1,6 @@
 export interface Container {
   id: string;
-  type: 'paper' | 'organic' | 'glass' | 'other';
+  type: 'paper' | 'organic' | 'glass' | 'other' | 'plastic';
   center: string;
   location: string;
   latitude: number;
@@ -11,8 +11,8 @@ export interface Container {
 
 export interface SimpleContainer {
   id: string;
-  type: 'paper' | 'organic' | 'glass' | 'other';
-  capacity: number;
+  type: 'paper' | 'organic' | 'glass' | 'other'| 'plastic';
+  percentage: number;
 }
 
 export interface ContainerLevel {

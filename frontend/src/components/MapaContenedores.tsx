@@ -1,54 +1,65 @@
-import React, { useEffect, useState } from 'react';
 import { Typography } from '@mui/material';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import { Icon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import type { Container } from "../interfaces";
+import iconPlastic from '../assets/contenedor.png';
+import iconPaper from '../assets/tacho-de-reciclaje.png';
+import iconGlass from '../assets/papelera-de-reciclaje.png';
+import iconOther from '../assets/other.png';
+import iconOrganic from '../assets/contenedor-de-basura.png';
+import { useEffect } from 'react';
 
 type Props = {
   contenedores: Container[];
 };
 
+function MapFix() {
+  const map = useMap();
+
+  useEffect(() => {
+    setTimeout(() => {
+      map.invalidateSize();
+    }, 500);
+  }, [map]);
+
+  return null;
+}
+
 const iconosContenedores = {
-  plastico: new Icon({
-    iconUrl: '../assets/contenedor.png',
+  plastic: new Icon({
+    iconUrl: iconPlastic,
     iconSize: [32, 37],
     iconAnchor: [16, 37],
     popupAnchor: [0, -37],
   }),
   papel: new Icon({
-    iconUrl: '../assets/tacho-de-reciclaje.png',
+    iconUrl: iconPaper,
     iconSize: [32, 37],
     iconAnchor: [16, 37],
     popupAnchor: [0, -37],
   }),
   vidrio: new Icon({
-    iconUrl: '../assets/contenedor.png',
+    iconUrl: iconGlass,
     iconSize: [32, 37],
     iconAnchor: [16, 37],
     popupAnchor: [0, -37],
   }),
   other: new Icon({
-    iconUrl: '../assets/contenedor.png',
+    iconUrl: iconOther,
     iconSize: [32, 37],
     iconAnchor: [16, 37],
     popupAnchor: [0, -37],
-  })
+  }),
+  organic: new Icon({
+    iconUrl: iconOrganic,
+    iconSize: [32, 37],
+    iconAnchor: [16, 37],
+    popupAnchor: [0, -37],
+  }),
 };
 
 export function MapaContenedores({ contenedores }: Props) {
-  const [datosNivel, setDatosNivel] = useState<Record<string, number>>({});
-
-  useEffect(() => {
-    fetch('/level')
-      .then(res => res.json())
-      .then((data: { id: string; porcentajeLlenado: number }[]) => {
-        const niveles = Object.fromEntries(data.map(d => [d.id, d.porcentajeLlenado]));
-        setDatosNivel(niveles);
-      })
-      .catch(err => console.error('Error fetching levels:', err));
-  }, []);
-
   return (
     <MapContainer
       center={[40.389554746634346, -3.628289052542359]}
@@ -56,13 +67,15 @@ export function MapaContenedores({ contenedores }: Props) {
       style={{ height: "400px", width: "100%" }}
       scrollWheelZoom={false}
     >
+      <MapFix />
       <TileLayer
         attribution='&copy; OpenStreetMap contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {contenedores.map(c => {
-        const icon = iconosContenedores[c.type.toLowerCase() as keyof typeof iconosContenedores] ?? iconosContenedores.plastico;
-        const porcentaje = datosNivel[c.id] ?? 0;
+        const icon = iconosContenedores[
+          c.type.toLowerCase() as keyof typeof iconosContenedores
+        ] ?? iconosContenedores.other;
 
         return (
           <Marker key={c.id} position={[c.latitude, c.longitude]} icon={icon}>
@@ -72,9 +85,6 @@ export function MapaContenedores({ contenedores }: Props) {
               </Typography>
               <Typography variant="body2">
                 {c.location}
-              </Typography>
-              <Typography variant="body2">
-                {porcentaje}% lleno
               </Typography>
             </Popup>
           </Marker>

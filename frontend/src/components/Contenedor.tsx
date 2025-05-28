@@ -29,7 +29,7 @@ function getLinearColorFromPercentage(percent: number): string {
 }
 
 export default function ContainerCard({ contenedor }: Props) {
-  const color = getLinearColorFromPercentage(contenedor.capacity);
+  const color = getLinearColorFromPercentage(contenedor.percentage);
 
   return (
     <Card
@@ -62,7 +62,7 @@ export default function ContainerCard({ contenedor }: Props) {
         <Box sx={{ position: "relative", display: "inline-flex" }}>
           <CircularProgress
             variant="determinate"
-            value={contenedor.capacity}
+            value={contenedor.percentage}
             size={100}
             thickness={5}
             sx={{ color }}
@@ -84,7 +84,7 @@ export default function ContainerCard({ contenedor }: Props) {
         </Box>
 
         <Typography variant="body2" color="text.secondary" sx={{ marginTop: 1 }}>
-          {contenedor.capacity}%
+          {contenedor.percentage}%
         </Typography>
       </CardContent>
     </Card>

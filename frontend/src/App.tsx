@@ -3,17 +3,20 @@ import { useEffect, useState } from 'react';
 import { Typography, Box } from '@mui/material';
 import { MapaContenedores } from './components/MapaContenedores';
 import ContainerCard from './components/Contenedor';
-import type { Container, SimpleContainer } from './interfaces';
-import { getContainers } from './api';
+import type { Container, ContainerLevel, SimpleContainer } from './interfaces';
+import { getContainers, getLevels } from './api';
 
 function App() {
   const [contenedores, setContenedores] = useState<Container[]>([]);
+  const [percentages, setPercentages] = useState<ContainerLevel[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await getContainers();
+        const levels = await getLevels();
         setContenedores(data);
+        setPercentages(levels);
       } catch (err) {
         console.error('Error cargando contenedores:', err);
       }
@@ -48,7 +51,14 @@ function App() {
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
             {items.map(c => (
-              <ContainerCard key={c.id} contenedor={{ id: c.id, type: c.type, capacity: c.capacity ?? 0 }} />
+              <ContainerCard
+              key={c.id}
+              contenedor={{
+                id: c.id,
+                type: c.type,
+                percentage: percentages.find(p => p.id === c.id)?.level ?? 0
+              }}
+            />
             ))}
           </Box>
         </Box>
