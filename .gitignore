@@ -1,2 +1,4 @@
-.env*
-!.env.example
+backend/.idea/
+backend/target/
+backend/out/
+.DS_Store
