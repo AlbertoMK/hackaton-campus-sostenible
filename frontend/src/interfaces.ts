@@ -13,3 +13,18 @@ export interface SimpleContainer {
   id: string;
   capacity: number;
 }
+
+export interface ContainerLevel {
+  id: string,
+  level: number,
+}
+
+export interface ContainerHistory {
+  id: string,
+  history: LevelData[],
+}
+
+interface LevelData {
+  timestamp: string,
+  levelPercent: number,
+}
