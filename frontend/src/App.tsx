@@ -11,7 +11,7 @@ function App() {
   const [contenedores, setContenedores] = useState<Container[]>([]);
   const [percentages, setPercentages] = useState<ContainerLevel[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [history, setHistory] = useState<ContainerHistory | null>(null); // Cambiado aquí
+  const [history, setHistory] = useState<ContainerHistory | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,20 +53,29 @@ function App() {
 
   const selectedContainer = contenedores.find(c => c.id === selectedId);
 
-  // Mostrar vista de detalles si hay uno seleccionado
     if (selectedContainer) {
       return (
         <DetailContenedor
           contenedor={selectedContainer}
           history={history ?? undefined}
-          onBack={() => setSelectedId(null)} // 👈 Añadido
+          onBack={() => setSelectedId(null)}
         />
       );
     }
 
-  // Vista principal
   return (
     <Box sx={{ p: 3 }}>
+      <Typography
+        variant="h2"
+        gutterBottom
+        sx={{
+          backgroundImage: 'linear-gradient(to right, #2196f3, #ffeb3b)', // azul a amarillo
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+        }}
+      >
+  NextRecycling
+</Typography>
       <Typography variant="h4" gutterBottom>
         Mapa de Contenedores
       </Typography>

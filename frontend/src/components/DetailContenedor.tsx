@@ -104,11 +104,17 @@ export default function DetailContenedor({ contenedor, history, onBack }: Props)
             )}
           </Box>
 
-          <Typography variant="body1" align="center" color="text.secondary">
+          <Typography
+            variant="body1"
+            align="center"
+            color="text.secondary"
+            sx={{ fontWeight: 'bold' }}
+          >
             {fechaEstimada
               ? `Fecha estimada de llenado: ${fechaEstimada}`
               : 'No se puede estimar la fecha de llenado'}
           </Typography>
+
         </Paper>
       </Box>
     </MuiContainer>
