@@ -1,14 +1,34 @@
 import { Card, CardContent, Typography, Box, CircularProgress } from "@mui/material";
 import type { SimpleContainer } from "../interfaces";
+import iconPlastic from '../assets/contenedor.png';
+import iconPaper from '../assets/tacho-de-reciclaje.png';
+import iconGlass from '../assets/papelera-de-reciclaje.png';
+import iconOrganic from '../assets/contenedor-de-basura.png';
+import iconOther from '../assets/other.png';
+
+function getContainerImage(type: string): string {
+  switch (type) {
+    case 'plastic':
+      return iconPlastic;
+    case 'paper':
+      return iconPaper;
+    case 'glass':
+      return iconGlass;
+    case 'organic':
+      return iconOrganic;
+    case 'other':
+    default:
+      return iconOther;
+  }
+}
 
 type Props = {
   contenedor: SimpleContainer;
 };
 
 function getLinearColorFromPercentage(percent: number): string {
-  percent = Math.max(0, Math.min(100, percent)); // Clamp between 0 and 100
+  percent = Math.max(0, Math.min(100, percent));
 
-  // Invertimos el porcentaje para que 0 sea rojo y 100 verde
   const inverted = 100 - percent;
 
   let r: number, g: number, b: number;
@@ -79,7 +99,12 @@ export default function ContainerCard({ contenedor }: Props) {
               justifyContent: "center",
             }}
           >
-            <img src="src/assets/contenedor.png" alt="Contenedor" width={40} height={40} />
+            <img
+              src={getContainerImage(contenedor.type)}
+              alt={contenedor.type}
+              width={40}
+              height={40}
+            />
           </Box>
         </Box>
 
