@@ -3,12 +3,15 @@ import { useEffect, useState } from 'react';
 import { Typography, Box } from '@mui/material';
 import { MapaContenedores } from './components/MapaContenedores';
 import ContainerCard from './components/Contenedor';
-import type { Container, ContainerLevel, SimpleContainer } from './interfaces';
-import { getContainers, getLevels } from './api';
+import DetailContenedor from './components/DetailContenedor';
+import type { Container, ContainerLevel, SimpleContainer, ContainerHistory } from './interfaces';
+import { getContainers, getLevels, getHistory } from './api';
 
 function App() {
   const [contenedores, setContenedores] = useState<Container[]>([]);
   const [percentages, setPercentages] = useState<ContainerLevel[]>([]);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [history, setHistory] = useState<ContainerHistory | null>(null); // Cambiado aquí
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,6 +28,22 @@ function App() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (!selectedId) return;
+
+    const loadHistory = async () => {
+      try {
+        const data: ContainerHistory[] = await getHistory(selectedId);
+        const found = data.find((h) => h.id === selectedId);
+        setHistory(found ?? null);
+      } catch (e) {
+        setHistory(null);
+      }
+    };
+
+    loadHistory();
+  }, [selectedId]);
+
   const contenedoresPorTipo: Record<string, SimpleContainer[]> = {};
   contenedores.forEach(c => {
     const tipo = c.type.toLowerCase();
@@ -32,14 +51,26 @@ function App() {
     contenedoresPorTipo[tipo].push(c);
   });
 
+  const selectedContainer = contenedores.find(c => c.id === selectedId);
+
+  // Mostrar vista de detalles si hay uno seleccionado
+    if (selectedContainer) {
+      return (
+        <DetailContenedor
+          contenedor={selectedContainer}
+          history={history ?? undefined}
+          onBack={() => setSelectedId(null)} // 👈 Añadido
+        />
+      );
+    }
+
+  // Vista principal
   return (
     <Box sx={{ p: 3 }}>
       <Typography variant="h4" gutterBottom>
         Mapa de Contenedores
       </Typography>
 
-      
-      
       <MapaContenedores contenedores={contenedores} />
 
       <Typography variant="h5" sx={{ mt: 4, mb: 2 }}>
@@ -53,14 +84,15 @@ function App() {
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
             {items.map(c => (
-              <ContainerCard
-              key={c.id}
-              contenedor={{
-                id: c.id,
-                type: c.type,
-                percentage: percentages.find(p => p.id === c.id)?.level ?? 0
-              }}
-            />
+              <div key={c.id} onClick={() => setSelectedId(c.id)} style={{ cursor: 'pointer' }}>
+                <ContainerCard
+                  contenedor={{
+                    id: c.id,
+                    type: c.type,
+                    percentage: percentages.find(p => p.id === c.id)?.level ?? 0,
+                  }}
+                />
+              </div>
             ))}
           </Box>
         </Box>

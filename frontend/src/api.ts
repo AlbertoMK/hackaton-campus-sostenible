@@ -14,7 +14,7 @@ export const getLevels = async(): Promise<ContainerLevel[]> => {
     return response.data;
 }
 
-export const getHistory = async(): Promise<ContainerHistory[]> => {
+export const getHistory = async(id: string): Promise<ContainerHistory[]> => {
     const response = await api.get<ContainerHistory[]>('history');
     return response.data;
 }

@@ -9,10 +9,14 @@ import {
 import { Sparklines, SparklinesLine } from 'react-sparklines';
 import type { Container as ContainerType, ContainerHistory } from '../interfaces';
 
+import { Button } from '@mui/material';
+
 type Props = {
   contenedor: ContainerType;
   history?: ContainerHistory;
+  onBack: () => void; // 👈 Nueva prop
 };
+
 
 function calcularFechaEstimada(history?: ContainerHistory): string | null {
   if (!history || history.history.length < 2) return null;
@@ -41,7 +45,7 @@ function calcularFechaEstimada(history?: ContainerHistory): string | null {
   });
 }
 
-export default function DetailContenedor({ contenedor, history }: Props) {
+export default function DetailContenedor({ contenedor, history, onBack }: Props) {
   const { id, type, center, location, capacity } = contenedor;
 
   const sparklineData =
@@ -53,6 +57,11 @@ export default function DetailContenedor({ contenedor, history }: Props) {
 
   return (
     <MuiContainer maxWidth="lg" sx={{ mt: 4 }}>
+      {/* Botón de volver */}
+      <Button variant="contained" color="primary" onClick={onBack} sx={{ mb: 3 }}>
+        ← Volver
+      </Button>
+
       <Box sx={{ display: 'flex', gap: 4 }}>
         {/* Información del contenedor */}
         <Paper elevation={3} sx={{ p: 3, borderRadius: 3, flex: 1 }}>
@@ -105,3 +114,4 @@ export default function DetailContenedor({ contenedor, history }: Props) {
     </MuiContainer>
   );
 }
+
