@@ -37,6 +37,8 @@ function App() {
       <Typography variant="h4" gutterBottom>
         Mapa de Contenedores
       </Typography>
+
+      
       
       <MapaContenedores contenedores={contenedores} />
 
