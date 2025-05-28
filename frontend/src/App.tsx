@@ -4,15 +4,22 @@ import { Typography, Box } from '@mui/material';
 import { MapaContenedores } from './components/MapaContenedores';
 import ContainerCard from './components/Contenedor';
 import type { Container, SimpleContainer } from './interfaces';
+import { getContainers } from './api';
 
 function App() {
   const [contenedores, setContenedores] = useState<Container[]>([]);
 
   useEffect(() => {
-    fetch('/contenedores')
-      .then(res => res.json())
-      .then(data => setContenedores(data))
-      .catch(err => console.error('Error cargando contenedores:', err));
+    const fetchData = async () => {
+      try {
+        const data = await getContainers();
+        setContenedores(data);
+      } catch (err) {
+        console.error('Error cargando contenedores:', err);
+      }
+    };
+
+    fetchData();
   }, []);
 
   const contenedoresPorTipo: Record<string, SimpleContainer[]> = {};
@@ -28,7 +35,7 @@ function App() {
         Mapa de Contenedores
       </Typography>
 
-      <MapaContenedores contenedores={contenedores} />
+      <MapaContenedores contenedores={contenedores}/>
 
       <Typography variant="h5" sx={{ mt: 4, mb: 2 }}>
         Lista de Contenedores
