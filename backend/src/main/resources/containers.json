@@ -1,0 +1,492 @@
+[
+  {
+    "id": "CONT-001",
+    "type": "paper",
+    "center": "ETS de Ingeniería y Sistemas Informáticos",
+    "location": "Salida principal",
+    "latitude": 40.389796,
+    "longitude": -3.628329,
+    "capacity": 195,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-002",
+    "type": "plastic",
+    "center": "ETS de Ingeniería y Sistemas Informáticos",
+    "location": "Bloque I, Segunda Planta",
+    "latitude": 40.38977,
+    "longitude": -3.628394,
+    "capacity": 162,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-003",
+    "type": "organic",
+    "center": "ETS de Ingeniería y Sistemas Informáticos",
+    "location": "Frente a la zona de descanso",
+    "latitude": 40.389975,
+    "longitude": -3.628212,
+    "capacity": 157,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-004",
+    "type": "glass",
+    "center": "ETS de Ingeniería y Sistemas Informáticos",
+    "location": "Bloque I, Planta Baja",
+    "latitude": 40.389847,
+    "longitude": -3.628094,
+    "capacity": 193,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-005",
+    "type": "other",
+    "center": "ETS de Ingeniería y Sistemas Informáticos",
+    "location": "Bloque II, Segunda Planta",
+    "latitude": 40.389793,
+    "longitude": -3.628382,
+    "capacity": 197,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-006",
+    "type": "paper",
+    "center": "ETS de Ingeniería y Sistemas Informáticos",
+    "location": "Salida principal",
+    "latitude": 40.38998,
+    "longitude": -3.628363,
+    "capacity": 127,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-007",
+    "type": "plastic",
+    "center": "ETS de Ingeniería y Sistemas Informáticos",
+    "location": "Bloque I, Segunda Planta",
+    "latitude": 40.389734,
+    "longitude": -3.628093,
+    "capacity": 176,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-008",
+    "type": "paper",
+    "center": "ETS de Ingeniería y Sistemas de Telecomunicación",
+    "location": "Bloque I, Segunda Planta",
+    "latitude": 40.389694,
+    "longitude": -3.630184,
+    "capacity": 101,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-009",
+    "type": "plastic",
+    "center": "ETS de Ingeniería y Sistemas de Telecomunicación",
+    "location": "Bloque II, Segunda Planta",
+    "latitude": 40.389367,
+    "longitude": -3.630261,
+    "capacity": 134,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-010",
+    "type": "organic",
+    "center": "ETS de Ingeniería y Sistemas de Telecomunicación",
+    "location": "Entrada principal",
+    "latitude": 40.389495,
+    "longitude": -3.630315,
+    "capacity": 109,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-011",
+    "type": "glass",
+    "center": "ETS de Ingeniería y Sistemas de Telecomunicación",
+    "location": "Salida principal",
+    "latitude": 40.389592,
+    "longitude": -3.63032,
+    "capacity": 163,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-012",
+    "type": "other",
+    "center": "ETS de Ingeniería y Sistemas de Telecomunicación",
+    "location": "Bloque III, Primera Planta",
+    "latitude": 40.389432,
+    "longitude": -3.630275,
+    "capacity": 110,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-013",
+    "type": "paper",
+    "center": "ETS de Ingeniería y Sistemas de Telecomunicación",
+    "location": "Junto al aparcamiento",
+    "latitude": 40.389596,
+    "longitude": -3.630132,
+    "capacity": 104,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-014",
+    "type": "plastic",
+    "center": "ETS de Ingeniería y Sistemas de Telecomunicación",
+    "location": "Bloque I, Planta Baja",
+    "latitude": 40.389424,
+    "longitude": -3.630231,
+    "capacity": 158,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-015",
+    "type": "paper",
+    "center": "ETS de Ingenieros en Topografía, Geodesia y Cartografía",
+    "location": "Bloque III, Segunda Planta",
+    "latitude": 40.389126,
+    "longitude": -3.631242,
+    "capacity": 106,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-016",
+    "type": "plastic",
+    "center": "ETS de Ingenieros en Topografía, Geodesia y Cartografía",
+    "location": "Bloque III, Primera Planta",
+    "latitude": 40.389022,
+    "longitude": -3.631232,
+    "capacity": 127,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-017",
+    "type": "organic",
+    "center": "ETS de Ingenieros en Topografía, Geodesia y Cartografía",
+    "location": "En el patio central",
+    "latitude": 40.389263,
+    "longitude": -3.63119,
+    "capacity": 138,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-018",
+    "type": "glass",
+    "center": "ETS de Ingenieros en Topografía, Geodesia y Cartografía",
+    "location": "Bloque I, Planta Baja",
+    "latitude": 40.389276,
+    "longitude": -3.631493,
+    "capacity": 194,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-019",
+    "type": "other",
+    "center": "ETS de Ingenieros en Topografía, Geodesia y Cartografía",
+    "location": "En el patio central",
+    "latitude": 40.389227,
+    "longitude": -3.63122,
+    "capacity": 124,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-020",
+    "type": "paper",
+    "center": "ETS de Ingenieros en Topografía, Geodesia y Cartografía",
+    "location": "En el patio central",
+    "latitude": 40.389032,
+    "longitude": -3.63141,
+    "capacity": 139,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-021",
+    "type": "plastic",
+    "center": "ETS de Ingenieros en Topografía, Geodesia y Cartografía",
+    "location": "Bloque II, Planta Baja",
+    "latitude": 40.389025,
+    "longitude": -3.631344,
+    "capacity": 123,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-022",
+    "type": "paper",
+    "center": "Instituto Universitario de Investigación del Automóvil",
+    "location": "Bloque I, Primera Planta",
+    "latitude": 40.387035,
+    "longitude": -3.632534,
+    "capacity": 188,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-023",
+    "type": "plastic",
+    "center": "Instituto Universitario de Investigación del Automóvil",
+    "location": "Junto al aparcamiento",
+    "latitude": 40.387021,
+    "longitude": -3.632582,
+    "capacity": 173,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-024",
+    "type": "organic",
+    "center": "Instituto Universitario de Investigación del Automóvil",
+    "location": "Junto al aparcamiento",
+    "latitude": 40.386984,
+    "longitude": -3.632492,
+    "capacity": 155,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-025",
+    "type": "glass",
+    "center": "Instituto Universitario de Investigación del Automóvil",
+    "location": "En el patio central",
+    "latitude": 40.387284,
+    "longitude": -3.632287,
+    "capacity": 191,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-026",
+    "type": "other",
+    "center": "Instituto Universitario de Investigación del Automóvil",
+    "location": "Bloque II, Planta Baja",
+    "latitude": 40.386984,
+    "longitude": -3.632228,
+    "capacity": 105,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-027",
+    "type": "paper",
+    "center": "Instituto Universitario de Investigación del Automóvil",
+    "location": "Bloque II, Primera Planta",
+    "latitude": 40.387105,
+    "longitude": -3.632419,
+    "capacity": 107,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-028",
+    "type": "plastic",
+    "center": "Instituto Universitario de Investigación del Automóvil",
+    "location": "Junto al aparcamiento",
+    "latitude": 40.38731,
+    "longitude": -3.632361,
+    "capacity": 129,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-029",
+    "type": "paper",
+    "center": "Centro Superior de Diseño de Moda de Madrid (adscrito a la UPM)",
+    "location": "Bloque III, Primera Planta",
+    "latitude": 40.388744,
+    "longitude": -3.631233,
+    "capacity": 177,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-030",
+    "type": "plastic",
+    "center": "Centro Superior de Diseño de Moda de Madrid (adscrito a la UPM)",
+    "location": "Bloque II, Primera Planta",
+    "latitude": 40.388708,
+    "longitude": -3.631059,
+    "capacity": 176,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-031",
+    "type": "organic",
+    "center": "Centro Superior de Diseño de Moda de Madrid (adscrito a la UPM)",
+    "location": "En el patio central",
+    "latitude": 40.388516,
+    "longitude": -3.631349,
+    "capacity": 108,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-032",
+    "type": "glass",
+    "center": "Centro Superior de Diseño de Moda de Madrid (adscrito a la UPM)",
+    "location": "Salida principal",
+    "latitude": 40.388843,
+    "longitude": -3.631204,
+    "capacity": 149,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-033",
+    "type": "other",
+    "center": "Centro Superior de Diseño de Moda de Madrid (adscrito a la UPM)",
+    "location": "Salida principal",
+    "latitude": 40.388709,
+    "longitude": -3.631034,
+    "capacity": 156,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-034",
+    "type": "paper",
+    "center": "Centro Superior de Diseño de Moda de Madrid (adscrito a la UPM)",
+    "location": "Salida principal",
+    "latitude": 40.38872,
+    "longitude": -3.631369,
+    "capacity": 156,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-035",
+    "type": "plastic",
+    "center": "Centro Superior de Diseño de Moda de Madrid (adscrito a la UPM)",
+    "location": "Bloque II, Segunda Planta",
+    "latitude": 40.388641,
+    "longitude": -3.631315,
+    "capacity": 192,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-036",
+    "type": "paper",
+    "center": "Centro de Investigación en Tecnologías Software y Sistemas Multimedia para la Sostenibilidad",
+    "location": "Bloque III, Primera Planta",
+    "latitude": 40.389524,
+    "longitude": -3.630079,
+    "capacity": 124,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-037",
+    "type": "plastic",
+    "center": "Centro de Investigación en Tecnologías Software y Sistemas Multimedia para la Sostenibilidad",
+    "location": "Bloque III, Segunda Planta",
+    "latitude": 40.389145,
+    "longitude": -3.630058,
+    "capacity": 107,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-038",
+    "type": "organic",
+    "center": "Centro de Investigación en Tecnologías Software y Sistemas Multimedia para la Sostenibilidad",
+    "location": "Bloque III, Primera Planta",
+    "latitude": 40.389315,
+    "longitude": -3.629883,
+    "capacity": 178,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-039",
+    "type": "glass",
+    "center": "Centro de Investigación en Tecnologías Software y Sistemas Multimedia para la Sostenibilidad",
+    "location": "Bloque III, Primera Planta",
+    "latitude": 40.389335,
+    "longitude": -3.630141,
+    "capacity": 102,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-040",
+    "type": "other",
+    "center": "Centro de Investigación en Tecnologías Software y Sistemas Multimedia para la Sostenibilidad",
+    "location": "Bloque I, Planta Baja",
+    "latitude": 40.389345,
+    "longitude": -3.629876,
+    "capacity": 170,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-041",
+    "type": "paper",
+    "center": "Centro de Investigación en Tecnologías Software y Sistemas Multimedia para la Sostenibilidad",
+    "location": "Bloque II, Segunda Planta",
+    "latitude": 40.389511,
+    "longitude": -3.629902,
+    "capacity": 106,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-042",
+    "type": "plastic",
+    "center": "Centro de Investigación en Tecnologías Software y Sistemas Multimedia para la Sostenibilidad",
+    "location": "Frente a la zona de descanso",
+    "latitude": 40.389505,
+    "longitude": -3.630194,
+    "capacity": 121,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-043",
+    "type": "paper",
+    "center": "Biblioteca Universitaria del Campus Sur",
+    "location": "Frente a la zona de descanso",
+    "latitude": 40.390511,
+    "longitude": -3.629789,
+    "capacity": 191,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-044",
+    "type": "plastic",
+    "center": "Biblioteca Universitaria del Campus Sur",
+    "location": "Bloque III, Planta Baja",
+    "latitude": 40.39017,
+    "longitude": -3.629754,
+    "capacity": 146,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-045",
+    "type": "organic",
+    "center": "Biblioteca Universitaria del Campus Sur",
+    "location": "Bloque I, Primera Planta",
+    "latitude": 40.390226,
+    "longitude": -3.629621,
+    "capacity": 175,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-046",
+    "type": "glass",
+    "center": "Biblioteca Universitaria del Campus Sur",
+    "location": "Salida principal",
+    "latitude": 40.390493,
+    "longitude": -3.629642,
+    "capacity": 163,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-047",
+    "type": "other",
+    "center": "Biblioteca Universitaria del Campus Sur",
+    "location": "Bloque III, Primera Planta",
+    "latitude": 40.390192,
+    "longitude": -3.629639,
+    "capacity": 185,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-048",
+    "type": "paper",
+    "center": "Biblioteca Universitaria del Campus Sur",
+    "location": "Bloque II, Planta Baja",
+    "latitude": 40.390474,
+    "longitude": -3.629409,
+    "capacity": 109,
+    "unit": "liters"
+  },
+  {
+    "id": "CONT-049",
+    "type": "plastic",
+    "center": "Biblioteca Universitaria del Campus Sur",
+    "location": "Al lado de los laboratorios",
+    "latitude": 40.390505,
+    "longitude": -3.629752,
+    "capacity": 116,
+    "unit": "liters"
+  }
+]
