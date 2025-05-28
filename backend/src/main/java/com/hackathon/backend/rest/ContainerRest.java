@@ -2,8 +2,10 @@ package com.hackathon.backend.rest;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.hackathon.backend.model.Container;
 import com.hackathon.backend.model.ContainerLevel;
+import com.hackathon.backend.model.ContainerHistory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +20,8 @@ import java.util.List;
 
 @RestController
 public class ContainerRest {
+
+    private static ObjectMapper objectMapper = new ObjectMapper();
 
     @GetMapping("/api")
     public ResponseEntity<String> getLevels() {
@@ -40,10 +44,26 @@ public class ContainerRest {
     public ResponseEntity<List<Container>> getContainers () {
         File archivo = new File("src/main/resources/containers.json");
         System.out.println(archivo.getAbsolutePath());
-        ObjectMapper mapper = new ObjectMapper();
         try {
-            List<Container> containers = mapper.readValue(archivo, new TypeReference<List<Container>>() {});
+            List<Container> containers = objectMapper.readValue(archivo, new TypeReference<List<Container>>() {});
             return ResponseEntity.ok(containers);
+        } catch (IOException ex) {
+            System.err.println(ex);
+            return ResponseEntity.internalServerError().body(List.of());
+        }
+    }
+
+    @GetMapping("/history")
+    public ResponseEntity<List<ContainerHistory>> getHistory () {
+        String json = getLevels().getBody();
+        try {
+            objectMapper.registerModule(new JavaTimeModule());
+
+            List<ContainerHistory> history =  objectMapper.readValue(json, new TypeReference<List<ContainerHistory>>() {});
+            if (history.isEmpty()) {
+                return ResponseEntity.noContent().build();
+            }
+            return ResponseEntity.ok(history);
         } catch (IOException ex) {
             System.err.println(ex);
             return ResponseEntity.internalServerError().body(List.of());
