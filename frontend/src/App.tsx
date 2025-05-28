@@ -69,7 +69,7 @@ function App() {
         variant="h2"
         gutterBottom
         sx={{
-          backgroundImage: 'linear-gradient(to right, #2196f3, #ffeb3b)', // azul a amarillo
+          backgroundImage: 'linear-gradient(to right, #2196f3, #ffeb3b)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
         }}
