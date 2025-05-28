@@ -20,7 +20,7 @@ function MapFix() {
   useEffect(() => {
     setTimeout(() => {
       map.invalidateSize();
-    }, 500);
+    }, 800);
   }, [map]);
 
   return null;
