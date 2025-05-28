@@ -6,8 +6,10 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.hackathon.backend.model.Container;
 import com.hackathon.backend.model.ContainerLevel;
 import com.hackathon.backend.model.ContainerHistory;
+import com.hackathon.backend.model.LevelData;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
@@ -16,6 +18,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -23,8 +26,7 @@ public class ContainerRest {
 
     private static ObjectMapper objectMapper = new ObjectMapper();
 
-    @GetMapping("/api")
-    public ResponseEntity<String> getLevels() {
+    public String getLevels() {
         try {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
@@ -33,10 +35,10 @@ public class ContainerRest {
                       .GET()
                       .build();
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            return ResponseEntity.ok(response.body());
+            return response.body();
         } catch (Exception e) {
             e.printStackTrace();
-            return ResponseEntity.internalServerError().body(e.getMessage());
+            return null;
         }
     }
 
@@ -53,9 +55,22 @@ public class ContainerRest {
         }
     }
 
+    @GetMapping("/containersByCenter")
+    public ResponseEntity<List<Container>> getContainersByCenter (@RequestParam String center) {
+        File archivo = new File("src/main/resources/containers.json");
+        try {
+            List<Container> containers = objectMapper.readValue(archivo, new TypeReference<List<Container>>() {});
+            List<Container> result = containers.stream().filter(c -> c.getCenter().equals(center)).toList();
+            return ResponseEntity.ok(result);
+        } catch (IOException ex) {
+            System.err.println(ex);
+            return ResponseEntity.internalServerError().body(List.of());
+        }
+    }
+
     @GetMapping("/history")
     public ResponseEntity<List<ContainerHistory>> getHistory () {
-        String json = getLevels().getBody();
+        String json = getLevels();
         try {
             objectMapper.registerModule(new JavaTimeModule());
 
@@ -72,6 +87,19 @@ public class ContainerRest {
 
     @GetMapping("/level")
     public ResponseEntity<List<ContainerLevel>> getContainersLevel() {
-        return null;
+        String json = getLevels();
+        List<ContainerLevel> containerLevels = new ArrayList<>();
+        try {
+            objectMapper.registerModule(new JavaTimeModule());
+            List<ContainerHistory> history =  objectMapper.readValue(json, new TypeReference<List<ContainerHistory>>() {});
+            history.forEach(lh -> {
+                LevelData data = lh.getHistory().stream().max((h1, h2) -> h1.getTimestamp().compareTo(h2.getTimestamp())).get();
+                containerLevels.add(new ContainerLevel(lh.getId(), data.getLevelPercent()));
+            });
+            return ResponseEntity.ok(containerLevels);
+        } catch (IOException ex) {
+            System.err.println(ex);
+            return ResponseEntity.internalServerError().body(List.of());
+        }
     }
 }
