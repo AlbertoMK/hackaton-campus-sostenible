@@ -11,6 +11,7 @@ export interface Container {
 
 export interface SimpleContainer {
   id: string;
+  type: 'paper' | 'organic' | 'glass' | 'other';
   capacity: number;
 }
 

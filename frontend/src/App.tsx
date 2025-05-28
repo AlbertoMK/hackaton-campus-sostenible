@@ -1,20 +1,53 @@
-import './App.css'
-import { Typography } from '@mui/material'
-import { Container } from './interfaces'
-import Contenedor from './components/Contenedor'
+import './App.css';
+import { useEffect, useState } from 'react';
+import { Typography, Box } from '@mui/material';
+import { MapaContenedores } from './components/MapaContenedores';
+import ContainerCard from './components/Contenedor';
+import type { Container, SimpleContainer } from './interfaces';
 
 function App() {
-  
+  const [contenedores, setContenedores] = useState<Container[]>([]);
+
+  useEffect(() => {
+    fetch('/contenedores')
+      .then(res => res.json())
+      .then(data => setContenedores(data))
+      .catch(err => console.error('Error cargando contenedores:', err));
+  }, []);
+
+  const contenedoresPorTipo: Record<string, SimpleContainer[]> = {};
+  contenedores.forEach(c => {
+    const tipo = c.type.toLowerCase();
+    if (!contenedoresPorTipo[tipo]) contenedoresPorTipo[tipo] = [];
+    contenedoresPorTipo[tipo].push(c);
+  });
 
   return (
-    <>
-      <Typography variant='h4'>Esto es una prueba</Typography>
+    <Box sx={{ p: 3 }}>
+      <Typography variant="h4" gutterBottom>
+        Mapa de Contenedores
+      </Typography>
 
-      <Contenedor contenedor={{ id: "CONT-048", capacity: 109 }}/>
+      <MapaContenedores contenedores={contenedores} />
 
-      
-    </>
-  )
+      <Typography variant="h5" sx={{ mt: 4, mb: 2 }}>
+        Lista de Contenedores
+      </Typography>
+
+      {Object.entries(contenedoresPorTipo).map(([tipo, items]) => (
+        <Box key={tipo} sx={{ mb: 4 }}>
+          <Typography variant="h6" gutterBottom sx={{ textTransform: 'capitalize' }}>
+            {tipo}
+          </Typography>
+          <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+            {items.map(c => (
+              <ContainerCard key={c.id} contenedor={{ id: c.id, type: c.type, capacity: c.capacity ?? 0 }} />
+            ))}
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  );
 }
 
-export default App
+export default App;
