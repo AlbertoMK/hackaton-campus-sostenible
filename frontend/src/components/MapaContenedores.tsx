@@ -11,25 +11,25 @@ type Props = {
 
 const iconosContenedores = {
   plastico: new Icon({
-    iconUrl: '/contenedor.png',
+    iconUrl: '../assets/contenedor.png',
     iconSize: [32, 37],
     iconAnchor: [16, 37],
     popupAnchor: [0, -37],
   }),
   papel: new Icon({
-    iconUrl: '/tacho-de-reciclaje.png',
+    iconUrl: '../assets/tacho-de-reciclaje.png',
     iconSize: [32, 37],
     iconAnchor: [16, 37],
     popupAnchor: [0, -37],
   }),
   vidrio: new Icon({
-    iconUrl: '/contenedor.png',
+    iconUrl: '../assets/contenedor.png',
     iconSize: [32, 37],
     iconAnchor: [16, 37],
     popupAnchor: [0, -37],
   }),
   other: new Icon({
-    iconUrl: '/contenedor.png',
+    iconUrl: '../assets/contenedor.png',
     iconSize: [32, 37],
     iconAnchor: [16, 37],
     popupAnchor: [0, -37],
